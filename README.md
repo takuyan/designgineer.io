@@ -30,14 +30,12 @@ BUNDLE_WITH=deploy bundle install
 BUNDLE_WITH=deploy bundle exec middleman s3_sync
 ```
 
-## HTTPS migration notes
+## HTTPS migration
 
-S3の静的サイトホスティング単体では、独自ドメイン（`designgineer.io`）でのHTTPS終端はできません。`https://designgineer.io` を安定運用するには、以下の構成が必要です。
+S3静的サイトホスティング単体では、独自ドメインでのHTTPS終端はできません。
+`designgineer.io` は `S3 + CloudFront + ACM` 構成で運用します。
 
-1. ACM（`us-east-1`）で `designgineer.io` と `www.designgineer.io` の証明書を発行
-2. CloudFront Distribution を作成し、S3バケットをオリジンに設定
-3. Alternate Domain Names (CNAMEs) に `designgineer.io` / `www.designgineer.io` を設定
-4. Route53 で `A/AAAA (Alias)` を CloudFront に向ける
-5. CloudFront Function または Behavior 設定で HTTP -> HTTPS リダイレクトを有効化
+実施手順は以下を参照してください。
 
-このリポジトリ側では、ページ内リンク・外部参照URLをHTTPS前提へ更新済みです。
+- [`docs/https-migration.md`](docs/https-migration.md)
+- [`infrastructure/cloudfront/viewer-request-redirect.js`](infrastructure/cloudfront/viewer-request-redirect.js)
