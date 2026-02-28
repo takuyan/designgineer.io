@@ -1,9 +1,29 @@
 ---
 title: designgineer.io
+description: デザインジニア / designgineer.io の公式サイト。Web制作・UI実装・フロントエンド開発。
 ---
 
-h1 designgineer.io
+main.site
+  section.hero
+    p.badge Designgineer.io
+    h1 デザインジニア
+    p.lead
+      | 個人事業の屋号「デザインジニア」の公式サイトです。
+      br
+      | Web制作・UI実装・フロントエンド開発を中心に活動しています。
+    .actions
+      a.button href='https://blog.takuyan.com' rel='noopener noreferrer' Blog
+      a.button.button-ghost href='mailto:hello@designgineer.io' Contact
 
-.welcome
-  a href='http://blog.takuyan.com'
-    |( ⁰⊖⁰)
+  section.panel
+    h2 What I Do
+    ul.work-list
+      li 設計から実装まで一気通貫したフロントエンド開発
+      li ブランドや文脈に合わせたWebサイト制作
+      li 既存サイトの改善・運用・保守
+
+  footer.footer
+    p
+      | © 
+      = Time.now.year
+      |  designgineer.io
